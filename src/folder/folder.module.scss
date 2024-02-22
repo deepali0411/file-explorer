@@ -1,0 +1,38 @@
+@import '../styles/mixin.scss';
+
+.container {
+    box-sizing: border-box;
+    font-size: 1.6rem;
+    width: 100%;
+    .folder {
+        .folderName {
+            margin: 0.4rem 0;
+            background-color: $platinum;
+            border: 0.1rem solid $platinum;
+            width: fit-content;
+            padding: 0.4rem;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            .button {
+                margin: 0 0.4rem;
+                cursor: pointer;
+                background-color: $white;
+                border: 0.1rem solid $platinum;
+                border-radius: 0.4rem;
+            }
+        }
+    }
+    .innerFiles {
+        padding: 0.8rem 0 0.8rem 1.6rem;
+    }
+    .file {
+        margin: 0.4rem 0;
+        .deleteButton {
+            border: none;
+            border-radius: 0.4rem;
+            margin: 0 0.4rem;
+            cursor: pointer;
+            padding: 0.2rem 0.6rem;
+        }
+    }
+}

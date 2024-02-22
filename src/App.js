@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+import useTraverseTree from "./hooks/useTraverseTree/useTraverseTree";
+import explorer from "./data/data";
+import Folder from "./folder/Folder";
+
+import "./App.css";
 
 function App() {
+  const [explorerData, setExplorerData] = useState(explorer);
+
+  const { insertNode, deleteNode } = useTraverseTree();
+
+  const handleUpdateFolder = (id, value, isFolder, isInsert) => {
+    const data = isInsert
+      ? insertNode(explorerData, id, value, isFolder)
+      : deleteNode(explorerData, id);
+    setExplorerData(data);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Folder
+        explorerData={explorerData}
+        handleUpdateFolder={handleUpdateFolder}
+      />
     </div>
   );
 }
